@@ -4,10 +4,10 @@ import { useState } from "react";
 
 export default function Home() {
   const [formData, setFormData] = useState({
-    fullName: "User Name",
-    address: "Test Address",
-    date: "2025-07-22",
-    price: "1000000",
+    fullName: "",
+    address: "",
+    date: "",
+    price: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
