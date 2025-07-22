@@ -29,7 +29,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "https://property-doc-backend.vercel.app/generate-document",
+        "@https://property-doc-backend.vercel.app/generate-document",
         {
           method: "POST",
           headers: {
