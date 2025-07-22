@@ -28,13 +28,16 @@ export default function Home() {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/generate-document", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://property-doc-backend.vercel.app/generate-document",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
