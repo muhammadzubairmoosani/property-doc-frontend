@@ -40,13 +40,18 @@ export default function Home() {
       );
 
       if (response.ok) {
-        const data = await response.json();
-        setMessage("Document generated successfully!");
+        // PDF file as blob
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "property_document.pdf"; // You can set a dynamic name if needed
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
 
-        // Trigger download
-        if (data.downloadUrl) {
-          window.open(data.downloadUrl, "_blank");
-        }
+        setMessage("Document generated successfully!");
       } else {
         setMessage("Error generating document. Please try again.");
       }
